@@ -17,13 +17,21 @@
             // If your array.Length is less than 3, something went wrong
             if (cells.Length < 3)
             {
+               
                 // Log that and return null
                 // Do not fail if one record parsing fails, return null
                 return null; // TODO Implement
             }
-
+            double latitude;
+            double longitude;
+            string name;
+            double.TryParse(cells[0], out latitude);
+            double.TryParse(cells[1], out longitude);
+            name = cells[2];
             // grab the latitude from your array at index 0
+
             // grab the longitude from your array at index 1
+
             // grab the name from your array at index 2
 
             // Your going to need to parse your string as a `double`
@@ -34,11 +42,16 @@
 
             // Then, you'll need an instance of the TacoBell class
             // With the name and point set correctly
-
+            var taco = new TacoBell();
+            taco.Name = name;
+            var point = new Point();
+            point.Latitude = latitude;
+            point.Longitude = longitude;
+            taco.Location = point;
             // Then, return the instance of your TacoBell class
             // Since it conforms to ITrackable
 
-            return null;
+            return taco;
         }
     }
 }
